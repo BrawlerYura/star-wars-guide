@@ -17,16 +17,7 @@ class firViewController: UIViewController {
         button.layer.cornerRadius =  15
         
         
-        ApiManager.shared.getPeople { planets in
-            
-        }
-        ApiManager.shared.getSpecies { planets in
-            
-        }
-       
-        ApiManager.shared.getStarships { planets in
-            
-        }
+
     }
     
 }

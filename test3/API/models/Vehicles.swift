@@ -9,12 +9,11 @@ import Foundation
 struct Vehicles: Codable {
     let count: Int?
     let next: String?
-    let previous: String?
-    let results: [Resul]?
+    let results: [Vehicle]?
 }
 
 // MARK: - Result
-struct Resul: Codable {
+struct Vehicle: Codable {
     let name, model, manufacturer, costInCredits: String?
     let length, maxAtmospheringSpeed, crew, passengers: String?
     let cargoCapacity, consumables, vehicleClass: String?

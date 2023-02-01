@@ -9,12 +9,11 @@ import Foundation
 struct Species: Codable {
     let count: Int?
     let next: String?
-    let previous: String?
-    let results: [Res]?
+    let results: [Specie]?
 }
 
 // MARK: - Result
-struct Res: Codable {
+struct Specie: Codable {
     let name, classification: String?
     let designation: String?
     let averageHeight, skinColors, hairColors, eyeColors: String?

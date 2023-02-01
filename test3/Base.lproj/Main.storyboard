@@ -174,14 +174,54 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Image 1" translatesAutoresizingMaskIntoConstraints="NO" id="exp-T4-4aM">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="392" height="852"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="voB-bY-Gtd">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RMC-pU-Ozk">
+                                    <size key="itemSize" width="386" height="59"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AXY-Dd-pvI">
+                                        <rect key="frame" x="3.6666666666666665" y="0.0" width="386" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k79-sP-3JV">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igd-Z7-jNt">
+                                                    <rect key="frame" x="54" y="5" width="275" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="ContentItemButton">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="30" name="Helvetica"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="386" height="59"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RI1-my-e7p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="exp-T4-4aM" firstAttribute="trailing" secondItem="RI1-my-e7p" secondAttribute="trailing" id="Fre-TA-bfZ"/>
+                            <constraint firstItem="exp-T4-4aM" firstAttribute="trailing" secondItem="RI1-my-e7p" secondAttribute="trailing" constant="-1" id="8lb-M5-o2Q"/>
                             <constraint firstAttribute="bottom" secondItem="exp-T4-4aM" secondAttribute="bottom" id="Gv2-A6-1av"/>
+                            <constraint firstAttribute="trailing" secondItem="exp-T4-4aM" secondAttribute="trailing" id="UDs-w6-Ffe"/>
                             <constraint firstItem="exp-T4-4aM" firstAttribute="top" secondItem="XJu-vh-FKf" secondAttribute="top" id="iOj-dq-0PI"/>
                             <constraint firstItem="exp-T4-4aM" firstAttribute="leading" secondItem="RI1-my-e7p" secondAttribute="leading" id="jTL-QX-cgE"/>
                         </constraints>

@@ -8,12 +8,12 @@ import Foundation
 // MARK: - Films
 struct Films: Codable {
     let count: Int?
-    let next, previous: String?
-    let results: [Result]?
+    let next: String?
+    let results: [Film]?
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Film: Codable {
     let title: String?
     let episodeID: Int?
     let openingCrawl, director, producer, releaseDate: String?

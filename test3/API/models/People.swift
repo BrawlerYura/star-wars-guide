@@ -6,15 +6,14 @@
 import Foundation
 
 // MARK: - People
-struct People: Codable {
+struct Peoples: Codable {
     let count: Int?
     let next: String?
-    let previous: String?
-    let results: [PResult]?
+    let results: [People]?
 }
 
 // MARK: - Result
-struct PResult: Codable {
+struct People: Codable {
     let name, height, mass, hairColor: String?
     let skinColor, eyeColor, birthYear: String?
     let gender: String?
@@ -23,4 +22,5 @@ struct PResult: Codable {
     let created, edited: String?
     let url: String?
 }
+
 

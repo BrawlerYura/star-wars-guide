@@ -19,6 +19,9 @@
 		84180DAE2986DA4A00949192 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84180DAC2986DA4A00949192 /* LaunchScreen.storyboard */; };
 		84180DB62986DAF300949192 /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84180DB52986DAF300949192 /* firstViewController.swift */; };
 		84180DB82986DB0A00949192 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84180DB72986DB0A00949192 /* secondViewController.swift */; };
+		8420B598298A22F90020E9DA /* thirdPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420B597298A22F90020E9DA /* thirdPresenter.swift */; };
+		8420B59B298A23E80020E9DA /* CurrentContentTypeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420B59A298A23E80020E9DA /* CurrentContentTypeIcons.swift */; };
+		84461A892989560C00123FEB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461A882989560C00123FEB /* NetworkManager.swift */; };
 		84E46C1D29880918001741A8 /* secondPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E46C1C29880918001741A8 /* secondPresenter.swift */; };
 		84FA6C6F2987B12E00DB14A4 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA6C6E2987B12E00DB14A4 /* APIManager.swift */; };
 		84FA6C712987B6E300DB14A4 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA6C702987B6E300DB14A4 /* Content.swift */; };
@@ -45,6 +48,9 @@
 		84180DAF2986DA4A00949192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84180DB52986DAF300949192 /* firstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
 		84180DB72986DB0A00949192 /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		8420B597298A22F90020E9DA /* thirdPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdPresenter.swift; sourceTree = "<group>"; };
+		8420B59A298A23E80020E9DA /* CurrentContentTypeIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentContentTypeIcons.swift; sourceTree = "<group>"; };
+		84461A882989560C00123FEB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		84E46C1C29880918001741A8 /* secondPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondPresenter.swift; sourceTree = "<group>"; };
 		84FA6C6E2987B12E00DB14A4 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		84FA6C702987B6E300DB14A4 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -83,7 +89,7 @@
 				84180DA52986DA4800949192 /* ViewController.swift */,
 				84180DB52986DAF300949192 /* firstViewController.swift */,
 				840F3CB22988DB0A00EFC3D7 /* SecondViewController */,
-				840FB5042987F7C700E6D470 /* thirdViewController.swift */,
+				8420B599298A23940020E9DA /* ThirdViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,17 +119,42 @@
 				84E46C1F29880D94001741A8 /* Models */,
 				84FA6C6B2987B0FC00DB14A4 /* API */,
 				84180DA72986DA4800949192 /* Main.storyboard */,
-				84180DAA2986DA4A00949192 /* Assets.xcassets */,
 				84180DAC2986DA4A00949192 /* LaunchScreen.storyboard */,
+				84180DAA2986DA4A00949192 /* Assets.xcassets */,
 				84180DAF2986DA4A00949192 /* Info.plist */,
 			);
 			path = test3;
+			sourceTree = "<group>";
+		};
+		8420B599298A23940020E9DA /* ThirdViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840FB5042987F7C700E6D470 /* thirdViewController.swift */,
+			);
+			path = ThirdViewController;
+			sourceTree = "<group>";
+		};
+		8420B59C298A23F60020E9DA /* SecondModels */ = {
+			isa = PBXGroup;
+			children = (
+				840F3CAC2988CF8400EFC3D7 /* ContentIcons.swift */,
+			);
+			path = SecondModels;
+			sourceTree = "<group>";
+		};
+		8420B59D298A24090020E9DA /* ThirdModels */ = {
+			isa = PBXGroup;
+			children = (
+				8420B59A298A23E80020E9DA /* CurrentContentTypeIcons.swift */,
+			);
+			path = ThirdModels;
 			sourceTree = "<group>";
 		};
 		84E46C1E29880D8A001741A8 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
 				84E46C1C29880918001741A8 /* secondPresenter.swift */,
+				8420B597298A22F90020E9DA /* thirdPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -131,7 +162,8 @@
 		84E46C1F29880D94001741A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				840F3CAC2988CF8400EFC3D7 /* ContentIcons.swift */,
+				8420B59C298A23F60020E9DA /* SecondModels */,
+				8420B59D298A24090020E9DA /* ThirdModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				84FA6C6E2987B12E00DB14A4 /* APIManager.swift */,
+				84461A882989560C00123FEB /* NetworkManager.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -247,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84461A892989560C00123FEB /* NetworkManager.swift in Sources */,
 				84FA6C7B2987BBA600DB14A4 /* Vehicles.swift in Sources */,
+				8420B598298A22F90020E9DA /* thirdPresenter.swift in Sources */,
 				840F3CB12988DAD700EFC3D7 /* SecondOutputDelegate.swift in Sources */,
 				840F3CAF2988D0FE00EFC3D7 /* SecondInputDelegate.swift in Sources */,
 				84FA6C792987BB6100DB14A4 /* Species.swift in Sources */,
@@ -258,6 +293,7 @@
 				84FA6C712987B6E300DB14A4 /* Content.swift in Sources */,
 				840FB5052987F7C700E6D470 /* thirdViewController.swift in Sources */,
 				84180DA22986DA4800949192 /* AppDelegate.swift in Sources */,
+				8420B59B298A23E80020E9DA /* CurrentContentTypeIcons.swift in Sources */,
 				84FA6C752987B77C00DB14A4 /* Films.swift in Sources */,
 				84180DB82986DB0A00949192 /* secondViewController.swift in Sources */,
 				84180DA42986DA4800949192 /* SceneDelegate.swift in Sources */,

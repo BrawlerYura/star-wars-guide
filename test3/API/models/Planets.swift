@@ -9,12 +9,11 @@ import Foundation
 struct Planets: Codable {
     let count: Int?
     let next: String?
-    let previous: String?
-    let results: [Results]?
+    let results: [Planet]?
 }
 
 // MARK: - Result
-struct Results: Codable {
+struct Planet: Codable {
     let name, rotationPeriod, orbitalPeriod, diameter: String?
     let climate, gravity, terrain, surfaceWater: String?
     let population: String?
