@@ -7,4 +7,20 @@
 
 import Foundation
 
+var contentType  = ""
 
+
+func selectChoosedContentType (choosedContentType: String) {
+    contentType = choosedContentType
+}
+
+
+
+func loadContentToCollectionView(contentIconsPeoples: Peoples) {
+    defaultPeoples = contentIconsPeoples
+    defaultPeople = contentIconsPeoples.results ?? defaultPeople
+}
+
+func loadContentToCollectionView(contentIconsFilms: Films) {
+    
+}

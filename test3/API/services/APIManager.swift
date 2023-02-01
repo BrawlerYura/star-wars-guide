@@ -60,7 +60,13 @@ class ApiManager {
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
 
-    func getPeoples(completion: @escaping (Result<Peoples, Error>) -> Void) {
+    func getPeoples(nextPageUrlString: String? , completion: @escaping (Result<Peoples, Error>) -> Void) {
+        if let nextPageUrlString = nextPageUrlString,
+           let nextPageUrl = URL(string: nextPageUrlString) {
+            let request = URLRequest(url: nextPageUrl)
+            self.networkManager.loadData(urlRequest: request, completion: completion)
+            return
+        }
         guard let request = ApiType.getPeoples.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
@@ -83,5 +89,10 @@ class ApiManager {
     func getStarships(completion: @escaping (Result<Starships, Error>) -> Void) {
         guard let request = ApiType.getStarships.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
+    }
+    
+    func getNext(url: String, completion: @escaping (Result<Peoples, Error>) -> Void) {
+        guard let request = URL(string: url) else { return }
+        self.networkManager.loadData(url: request, completion: completion)
     }
 }

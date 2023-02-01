@@ -25,8 +25,8 @@ class secViewController: UIViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.secondOutputDelegate?.saveChoosedContentType(choosedContentType: icons[indexPath.row].titles)
         performSegue(withIdentifier: "Thi", sender: self)
-        print(icons[indexPath.row].titles)
     }
     
 }

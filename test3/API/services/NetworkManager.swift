@@ -14,19 +14,18 @@ protocol INetworkManager: NSObject {
 }
 
 class NetworkManager: NSObject {
-    
     private let session = URLSession(configuration: .default)
 }
 
 extension NetworkManager: INetworkManager {
     
-    func loadData<T>(url: URL, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+    func loadData<T>(url: URL, completion: @escaping (Result<T, Error>) -> Void) where T: Decodable {
         let request = URLRequest(url: url)
         
         self.loadData(urlRequest: request, completion: completion)
     }
     
-    func loadData<T>(urlRequest: URLRequest, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+    func loadData<T>(urlRequest: URLRequest, completion: @escaping (Result<T, Error>) -> Void) where T: Decodable {
         
         let task = self.session.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
