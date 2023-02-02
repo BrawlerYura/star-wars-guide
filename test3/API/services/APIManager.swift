@@ -55,7 +55,7 @@ class ApiManager {
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
     
-    func getFilms(completion: @escaping (Result<Films, Error>) -> Void) {
+    func getFilms(nextPageUrlString: String? , completion: @escaping (Result<Films, Error>) -> Void) {
         guard let request = ApiType.getFilms.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
@@ -71,28 +71,47 @@ class ApiManager {
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
 
-    func getPlanets(completion: @escaping (Result<Planets, Error>) -> Void) {
+    func getPlanets(nextPageUrlString: String? , completion: @escaping (Result<Planets, Error>) -> Void) {
+        if let nextPageUrlString = nextPageUrlString,
+           let nextPageUrl = URL(string: nextPageUrlString) {
+            let request = URLRequest(url: nextPageUrl)
+            self.networkManager.loadData(urlRequest: request, completion: completion)
+            return
+        }
         guard let request = ApiType.getPlanets.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
 
-    func getSpecies(completion: @escaping (Result<Species, Error>) -> Void) {
+    func getSpecies(nextPageUrlString: String? , completion: @escaping (Result<Species, Error>) -> Void) {
+        if let nextPageUrlString = nextPageUrlString,
+           let nextPageUrl = URL(string: nextPageUrlString) {
+            let request = URLRequest(url: nextPageUrl)
+            self.networkManager.loadData(urlRequest: request, completion: completion)
+            return
+        }
         guard let request = ApiType.getSpecies.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
 
-    func getVehicles(completion: @escaping (Result<Vehicles, Error>) -> Void) {
+    func getVehicles(nextPageUrlString: String? , completion: @escaping (Result<Vehicles, Error>) -> Void) {
+        if let nextPageUrlString = nextPageUrlString,
+           let nextPageUrl = URL(string: nextPageUrlString) {
+            let request = URLRequest(url: nextPageUrl)
+            self.networkManager.loadData(urlRequest: request, completion: completion)
+            return
+        }
         guard let request = ApiType.getVehicles.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
 
-    func getStarships(completion: @escaping (Result<Starships, Error>) -> Void) {
+    func getStarships(nextPageUrlString: String? , completion: @escaping (Result<Starships, Error>) -> Void) {
+        if let nextPageUrlString = nextPageUrlString,
+           let nextPageUrl = URL(string: nextPageUrlString) {
+            let request = URLRequest(url: nextPageUrl)
+            self.networkManager.loadData(urlRequest: request, completion: completion)
+            return
+        }
         guard let request = ApiType.getStarships.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
-    }
-    
-    func getNext(url: String, completion: @escaping (Result<Peoples, Error>) -> Void) {
-        guard let request = URL(string: url) else { return }
-        self.networkManager.loadData(url: request, completion: completion)
     }
 }

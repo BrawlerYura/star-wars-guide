@@ -17,6 +17,7 @@ class thirdViewController: UIViewController {
     private var isLoading: Bool = false
     private var isPageEnded: Bool = false
     
+    @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,8 @@ class thirdViewController: UIViewController {
 //        self.tableView.register(UINib(nibName: "PostContentCell", bundle: nil), forCellReuseIdentifier: "PostContentCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+
+        self.tableView.separatorStyle = .none
         title = contentType
         
         loadContent(contentType: contentType, nextPageUrlString: nil)
@@ -51,6 +53,8 @@ extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+    
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height + Metrics.cellHeight) > scrollView.contentSize.height) {
@@ -82,6 +86,7 @@ class PostContentCell: UITableViewCell {
 
 private extension thirdViewController {
     func loadContent(contentType: String , nextPageUrlString: String?)  {
+        self.activityController.startAnimating()
         self.isLoading = true
         switch contentType {
         case "Characters":
@@ -96,10 +101,10 @@ private extension thirdViewController {
                 }
             }
         case "Films":
-            ApiManager.shared.getFilms { result in
+            ApiManager.shared.getFilms(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
                 case .success(let films):
-                    print(films)
+                    self.charactersSuccessLoadingHandle(with: films)
                     self.isLoading = false
                 case .failure(let error):
                     print(error)
@@ -107,10 +112,10 @@ private extension thirdViewController {
                 }
             }
         case "Vehicles":
-            ApiManager.shared.getVehicles { result in
+            ApiManager.shared.getVehicles(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
                 case .success(let vehicles):
-                    print(vehicles)
+                    self.charactersSuccessLoadingHandle(with: vehicles)
                     self.isLoading = false
                 case .failure(let error):
                     print(error)
@@ -118,10 +123,10 @@ private extension thirdViewController {
                 }
             }
         case "Species":
-            ApiManager.shared.getSpecies { result in
+            ApiManager.shared.getSpecies(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
                 case .success(let species):
-                    print(species)
+                    self.charactersSuccessLoadingHandle(with: species)
                     self.isLoading = false
                 case .failure(let error):
                     print(error)
@@ -129,10 +134,10 @@ private extension thirdViewController {
                 }
             }
         case "Starships":
-            ApiManager.shared.getStarships { result in
+            ApiManager.shared.getStarships(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
                 case .success(let starships):
-                    print(starships)
+                    self.charactersSuccessLoadingHandle(with: starships)
                     self.isLoading = false
                 case .failure(let error):
                     print(error)
@@ -140,10 +145,10 @@ private extension thirdViewController {
                 }
             }
         case "Planets":
-            ApiManager.shared.getPlanets { result in
+            ApiManager.shared.getPlanets(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
                 case .success(let planets):
-                    print(planets)
+                    self.charactersSuccessLoadingHandle(with: planets)
                     self.isLoading = false
                 case .failure(let error):
                     print(error)
@@ -165,8 +170,78 @@ private extension thirdViewController {
         
         guard let results = peoples.results else { return }
         let categoryContents = results.map { ContentCategoryCellModel(url: $0.url , name: $0.name ?? "") }
+        appendCategoryContents(categoryContents: categoryContents)
+    }
+    
+    func charactersSuccessLoadingHandle(with films: Films) {
+        if let nextPage = films.next {
+            self.nextPage = nextPage
+        } else {
+            self.isPageEnded = true
+            self.nextPage = nil
+        }
+        
+        guard let results = films.results else { return }
+        let categoryContents = results.map { ContentCategoryCellModel(url: $0.url , name: $0.title ?? "") }
+        appendCategoryContents(categoryContents: categoryContents)
+    }
+    
+    func charactersSuccessLoadingHandle(with vehicles: Vehicles) {
+        if let nextPage = vehicles.next {
+            self.nextPage = nextPage
+        } else {
+            self.isPageEnded = true
+            self.nextPage = nil
+        }
+        
+        guard let results = vehicles.results else { return }
+        let categoryContents = results.map { ContentCategoryCellModel(url: $0.url , name: $0.name ?? "") }
+        appendCategoryContents(categoryContents: categoryContents)
+    }
+    
+    func charactersSuccessLoadingHandle(with starships: Starships) {
+        if let nextPage = starships.next {
+            self.nextPage = nextPage
+        } else {
+            self.isPageEnded = true
+            self.nextPage = nil
+        }
+        
+        guard let results = starships.results else { return }
+        let categoryContents = results.map { ContentCategoryCellModel(url: $0.url , name: $0.name ?? "") }
+        appendCategoryContents(categoryContents: categoryContents)
+    }
+    
+    func charactersSuccessLoadingHandle(with species: Species) {
+        if let nextPage = species.next {
+            self.nextPage = nextPage
+        } else {
+            self.isPageEnded = true
+            self.nextPage = nil
+        }
+        
+        guard let results = species.results else { return }
+        let categoryContents = results.map { ContentCategoryCellModel(url: $0.url , name: $0.name ?? "") }
+        appendCategoryContents(categoryContents: categoryContents)
+    }
+    
+    func charactersSuccessLoadingHandle(with planets: Planets) {
+        if let nextPage = planets.next {
+            self.nextPage = nextPage
+        } else {
+            self.isPageEnded = true
+            self.nextPage = nil
+        }
+        
+        guard let results = planets.results else { return }
+        let categoryContents = results.map { ContentCategoryCellModel(url: $0.url , name: $0.name ?? "") }
+        appendCategoryContents(categoryContents: categoryContents)
+    }
+    
+    func appendCategoryContents(categoryContents: [ContentCategoryCellModel]) {
         self.categoryContents.append(contentsOf: categoryContents)
         DispatchQueue.main.async{
+            self.activityController.stopAnimating()
             self.tableView.reloadData()
         }
     }
