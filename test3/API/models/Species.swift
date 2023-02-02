@@ -16,8 +16,8 @@ struct Species: Codable {
 struct Specie: Codable {
     let name, classification: String?
     let designation: String?
-    let averageHeight, skinColors, hairColors, eyeColors: String?
-    let averageLifespan: String?
+    let average_height, skin_colors, hair_colors, eye_colors: String?
+    let average_lifespan: String?
     let homeworld: String?
     let language: String?
     let people, films: [String]?

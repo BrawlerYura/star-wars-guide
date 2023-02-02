@@ -14,8 +14,8 @@ struct Planets: Codable {
 
 // MARK: - Result
 struct Planet: Codable {
-    let name, rotationPeriod, orbitalPeriod, diameter: String?
-    let climate, gravity, terrain, surfaceWater: String?
+    let name, rotation_period, orbital_period, diameter: String?
+    let climate, gravity, terrain, surface_water: String?
     let population: String?
     let residents, films: [String]?
     let created, edited: String?

@@ -14,16 +14,11 @@ struct Peoples: Codable {
 
 // MARK: - Result
 struct People: Codable {
-    let name, height, mass, hairColor: String?
-    let skinColor, eyeColor, birthYear: String?
+    let name, height, mass, hair_color: String?
+    let skin_color, eye_color, birth_year: String?
     let gender: String?
     let homeworld: String?
     let films, species, vehicles, starships: [String]?
     let created, edited: String?
     let url: String?
 }
-
-
-var defaultPeople = [People(name: "", height: "", mass: "", hairColor: "", skinColor: "", eyeColor: "", birthYear: "", gender: "", homeworld: "", films: [], species: [], vehicles: [], starships: [], created: "", edited: "", url: "")]
-
-var defaultPeoples = Peoples(count: 0, next: "", results: [])

@@ -114,4 +114,34 @@ class ApiManager {
         guard let request = ApiType.getStarships.request else { return }
         self.networkManager.loadData(urlRequest: request, completion: completion)
     }
+    
+    func getPeopleObject(objectUrl: String , completion: @escaping (Result<People, Error>) -> Void) {
+        guard let request = URL(string: objectUrl) else { return }
+        self.networkManager.loadData(url: request , completion: completion)
+    }
+    
+    func getPlanetObject(objectUrl: String , completion: @escaping (Result<Planet, Error>) -> Void) {
+        guard let request = URL(string: objectUrl) else { return }
+        self.networkManager.loadData(url: request , completion: completion)
+    }
+    
+    func getSpecieObject(objectUrl: String , completion: @escaping (Result<Specie, Error>) -> Void) {
+        guard let request = URL(string: objectUrl) else { return }
+        self.networkManager.loadData(url: request , completion: completion)
+    }
+    
+    func getFilmObject(objectUrl: String , completion: @escaping (Result<Film, Error>) -> Void) {
+        guard let request = URL(string: objectUrl) else { return }
+        self.networkManager.loadData(url: request , completion: completion)
+    }
+    
+    func getStarshipObject(objectUrl: String , completion: @escaping (Result<Starship, Error>) -> Void) {
+        guard let request = URL(string: objectUrl) else { return }
+        self.networkManager.loadData(url: request , completion: completion)
+    }
+    
+    func getVehicleObject(objectUrl: String , completion: @escaping (Result<Vehicle, Error>) -> Void) {
+        guard let request = URL(string: objectUrl) else { return }
+        self.networkManager.loadData(url: request , completion: completion)
+    }
 }

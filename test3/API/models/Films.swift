@@ -15,8 +15,8 @@ struct Films: Codable {
 // MARK: - Result
 struct Film: Codable {
     let title: String?
-    let episodeID: Int?
-    let openingCrawl, director, producer, releaseDate: String?
+    let episode_id: Int?
+    let opening_crawl, director, producer, release_date: String?
     let characters, planets, starships, vehicles: [String]?
     let species: [String]?
     let created, edited: String?

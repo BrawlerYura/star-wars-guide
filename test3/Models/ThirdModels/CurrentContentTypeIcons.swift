@@ -13,11 +13,3 @@ import Foundation
 
 
 
-func loadContentToCollectionView(contentIconsPeoples: Peoples) {
-    defaultPeoples = contentIconsPeoples
-    defaultPeople = contentIconsPeoples.results ?? defaultPeople
-}
-
-func loadContentToCollectionView(contentIconsFilms: Films) {
-    
-}

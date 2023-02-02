@@ -9,9 +9,12 @@ import UIKit
 
 
 class thirdViewController: UIViewController {
+    
+    
     private enum Metrics {
         static let cellHeight: CGFloat = 65
     }
+    
     private var categoryContents: [ContentCategoryCellModel] = []
     private var nextPage: String?
     private var isLoading: Bool = false
@@ -20,19 +23,27 @@ class thirdViewController: UIViewController {
     
     @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.allowsSelection = true
+//        self.view.bringSubviewToFront(tableView)
 //        self.tableView.register(UINib(nibName: "PostContentCell", bundle: nil), forCellReuseIdentifier: "PostContentCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
+        
         self.tableView.separatorStyle = .none
         title = contentType
         
         loadContent(contentType: contentType, nextPageUrlString: nil)
         
     }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+    
+    
     
     
 }
@@ -42,6 +53,7 @@ class thirdViewController: UIViewController {
 
 extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
     
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryContents.count
     }
@@ -51,7 +63,6 @@ extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostContentCell", for: indexPath) as? PostContentCell else { return UITableViewCell() }
         cell.configure(with: categoryContents[indexPath.row])
         
-
         return cell
     }
     
@@ -65,18 +76,31 @@ extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let fourthViewController = storyboard.instantiateViewController(identifier: "FourthViewController") as? FourthViewController else { return }
+        fourthViewController.objectName = categoryContents[indexPath.row].name
+        var objectUrl = categoryContents[indexPath.row].url ?? ""
+        fourthViewController.objectUrl = objectUrl + "?format=json"
+        fourthViewController.contentType = self.contentType
+        show(fourthViewController, sender: nil)
+    }
+    
+    
+    
 }
 
 class PostContentCell: UITableViewCell {
-    
     
     @IBOutlet weak var backgroundCellView: UIView!
     @IBOutlet weak var contentLabel: UILabel!
     
     override func awakeFromNib() {
+        
         backgroundCellView.layer.cornerRadius = 25
         backgroundCellView.layer.masksToBounds = true
-        
     }
     
     func configure(with model: ContentCategoryCellModel) {
@@ -89,6 +113,7 @@ private extension thirdViewController {
     func loadContent(contentType: String , nextPageUrlString: String?)  {
         self.activityController.startAnimating()
         self.isLoading = true
+        
         switch contentType {
         case "Characters":
             ApiManager.shared.getPeoples(nextPageUrlString: nextPageUrlString) { result in

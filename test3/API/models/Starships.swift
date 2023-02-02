@@ -14,10 +14,10 @@ struct Starships: Codable {
 
 // MARK: - Result
 struct Starship: Codable {
-    let name, model, manufacturer, costInCredits: String?
-    let length, maxAtmospheringSpeed, crew, passengers: String?
-    let cargoCapacity, consumables, hyperdriveRating, mglt: String?
-    let starshipClass: String?
+    let name, model, manufacturer, cost_in_credits: String?
+    let length, max_atmosphering_speed, crew, passengers: String?
+    let cargo_capacity, consumables, hyperdrive_rating, mglt: String?
+    let starship_class: String?
     let pilots, films: [String]?
     let created, edited: String?
     let url: String?

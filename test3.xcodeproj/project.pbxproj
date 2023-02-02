@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840E12BA298B91C5009F5FFB /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E12B9298B91C5009F5FFB /* FourthViewController.swift */; };
+		840E12BD298BA697009F5FFB /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E12BC298BA697009F5FFB /* Objects.swift */; };
 		840F3CAD2988CF8400EFC3D7 /* ContentIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F3CAC2988CF8400EFC3D7 /* ContentIcons.swift */; };
 		840F3CAF2988D0FE00EFC3D7 /* SecondInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F3CAE2988D0FE00EFC3D7 /* SecondInputDelegate.swift */; };
 		840F3CB12988DAD700EFC3D7 /* SecondOutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F3CB02988DAD700EFC3D7 /* SecondOutputDelegate.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840E12B9298B91C5009F5FFB /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		840E12BC298BA697009F5FFB /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		840F3CAC2988CF8400EFC3D7 /* ContentIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentIcons.swift; sourceTree = "<group>"; };
 		840F3CAE2988D0FE00EFC3D7 /* SecondInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondInputDelegate.swift; sourceTree = "<group>"; };
 		840F3CB02988DAD700EFC3D7 /* SecondOutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOutputDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840E12B8298B9196009F5FFB /* FourthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840E12B9298B91C5009F5FFB /* FourthViewController.swift */,
+			);
+			path = FourthViewController;
+			sourceTree = "<group>";
+		};
+		840E12BB298BA67E009F5FFB /* FourthModels */ = {
+			isa = PBXGroup;
+			children = (
+				840E12BC298BA697009F5FFB /* Objects.swift */,
+			);
+			path = FourthModels;
+			sourceTree = "<group>";
+		};
 		840F3CB22988DB0A00EFC3D7 /* SecondViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +112,7 @@
 				84180DB52986DAF300949192 /* firstViewController.swift */,
 				840F3CB22988DB0A00EFC3D7 /* SecondViewController */,
 				8420B599298A23940020E9DA /* ThirdViewController */,
+				840E12B8298B9196009F5FFB /* FourthViewController */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +188,7 @@
 			children = (
 				8420B59C298A23F60020E9DA /* SecondModels */,
 				8420B59D298A24090020E9DA /* ThirdModels */,
+				840E12BB298BA67E009F5FFB /* FourthModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,10 +313,12 @@
 				84FA6C792987BB6100DB14A4 /* Species.swift in Sources */,
 				84180DB62986DAF300949192 /* firstViewController.swift in Sources */,
 				84180DA62986DA4800949192 /* ViewController.swift in Sources */,
+				840E12BA298B91C5009F5FFB /* FourthViewController.swift in Sources */,
 				840F3CAD2988CF8400EFC3D7 /* ContentIcons.swift in Sources */,
 				84FA6C7D2987BBC500DB14A4 /* Starships.swift in Sources */,
 				84FA6C712987B6E300DB14A4 /* Content.swift in Sources */,
 				840FB5052987F7C700E6D470 /* thirdViewController.swift in Sources */,
+				840E12BD298BA697009F5FFB /* Objects.swift in Sources */,
 				84180DA22986DA4800949192 /* AppDelegate.swift in Sources */,
 				8420B59B298A23E80020E9DA /* CurrentContentTypeIcons.swift in Sources */,
 				84FA6C752987B77C00DB14A4 /* Films.swift in Sources */,
