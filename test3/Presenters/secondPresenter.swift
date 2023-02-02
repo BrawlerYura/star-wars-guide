@@ -26,8 +26,6 @@ extension SecondPresenter: SecondOutputDelegate {
         self.loadIcons()
     }
 
-    func saveChoosedContentType(choosedContentType: String) {
-        selectChoosedContentType(choosedContentType: choosedContentType)
-    }
+
 
 }

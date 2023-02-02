@@ -7,12 +7,9 @@
 
 import Foundation
 
-var contentType  = ""
 
 
-func selectChoosedContentType (choosedContentType: String) {
-    contentType = choosedContentType
-}
+
 
 
 

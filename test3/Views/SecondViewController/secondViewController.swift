@@ -25,12 +25,13 @@ class secViewController: UIViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.secondOutputDelegate?.saveChoosedContentType(choosedContentType: icons[indexPath.row].titles)
-        performSegue(withIdentifier: "Thi", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let thirdViewController = storyboard.instantiateViewController(identifier: "ThirdViewController") as? thirdViewController else { return }
+                thirdViewController.contentType = icons[indexPath.row].titles
+        show(thirdViewController, sender: nil)
     }
     
 }
-
 
 extension secViewController: SecondInputDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     

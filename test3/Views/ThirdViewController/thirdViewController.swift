@@ -16,6 +16,7 @@ class thirdViewController: UIViewController {
     private var nextPage: String?
     private var isLoading: Bool = false
     private var isPageEnded: Bool = false
+    var contentType: String = ""
     
     @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!

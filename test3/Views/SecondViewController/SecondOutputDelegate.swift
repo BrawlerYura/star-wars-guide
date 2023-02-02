@@ -10,5 +10,4 @@ import Foundation
 
 protocol SecondOutputDelegate: AnyObject {
     func getIcons()
-    func saveChoosedContentType(choosedContentType: String)
 }
