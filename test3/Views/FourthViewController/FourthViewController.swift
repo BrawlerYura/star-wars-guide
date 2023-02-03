@@ -12,12 +12,15 @@ class FourthViewController: UIViewController {
     var contentType = ""
     var objectName = ""
     var objectUrl = ""
+    var objectID: Int = 0
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var objectImage: UIImageView!
     @IBOutlet weak var infoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         loadContent(contentType: contentType, objectUrl: objectUrl)
         nameLabel.text = objectName
     }
@@ -31,6 +34,7 @@ class FourthViewController: UIViewController {
 private extension FourthViewController {
     func loadContent(contentType: String , objectUrl: String)  {
         infoLabel.isHidden = true
+        self.objectImage.isHidden = false
         activityIndicator.startAnimating()
         switch contentType {
         case "Characters":
@@ -41,7 +45,8 @@ private extension FourthViewController {
                 case .failure(let error):
                     print(error)
                 }
-            }
+            
+        }
         case "Films":
             ApiManager.shared.getFilmObject(objectUrl: objectUrl) { result in
                 switch  result{
@@ -96,6 +101,9 @@ private extension FourthViewController {
 
         DispatchQueue.main.async{
             let text: String = "Height: " + (people.height ?? "unknown") + "\nMass: " + (people.mass ?? "unknown") + "\nHair color: " + (people.hair_color ?? "unknown") + "\nSkin color: " + (people.skin_color ?? "unknown") + "\nEye color: " + (people.eye_color ?? "unknown") + "\nBirth year: " + (people.birth_year ?? "unknown") + "\nGender: " + (people.gender ?? "unknown")
+            if self.objectID >= 19{
+                self.objectID += 1
+            }
             self.appendObjectDetails(text: text)
         }
         
@@ -114,6 +122,7 @@ private extension FourthViewController {
         
         DispatchQueue.main.async{
             let text: String = "Model: \(vehicle.model ?? "unknown") \nManufacturer: \(vehicle.manufacturer ?? "unknown") \nCost in credits: \(vehicle.cost_in_credits ?? "unknown") \nLength: \(vehicle.length ?? "unknown") \nMax atmosphering speed: \(vehicle.max_atmosphering_speed ?? "unknown") \nCrew: \(vehicle.crew ?? "unknown") \nPassengers: \(vehicle.passengers ?? "unknown") \nCargo capacity: \(vehicle.cargo_capacity ?? "unknown") \nConsumables: \(vehicle.consumables ?? "unknown") \nVehicle class: \(vehicle.vehicle_class ?? "unknown")"
+            self.objectID += 4
             self.appendObjectDetails(text: text)
         }
     }
@@ -122,6 +131,7 @@ private extension FourthViewController {
         
         DispatchQueue.main.async{
             let text: String = "Model: \(starship.model ?? "unknown") \nManufacturer: \(starship.manufacturer ?? "unknown") \nCost in credits: \(starship.cost_in_credits ?? "unknown") \nLength: \(starship.length ?? "unknown") \nMax atmosphering speed: \(starship.max_atmosphering_speed ?? "unknown") \nCrew: \(starship.crew ?? "unknown") \nPassengers: \(starship.passengers ?? "unknown") \nCargo capacity: \(starship.cargo_capacity ?? "unknown") \nConsumables: \(starship.consumables ?? "unknown") \nHyperdrive rating: \(starship.hyperdrive_rating ?? "unknown") \nMGLT: \(starship.mglt ?? "unknown") \nStarship class: \(starship.starship_class ?? "unknown")"
+            self.objectID += 7
             self.appendObjectDetails(text: text)
         }
     }
@@ -142,12 +152,26 @@ private extension FourthViewController {
         }
     }
     
+    func SuccessLoadingHandle(with data: Data) {
+        DispatchQueue.main.async{
+            self.objectImage.image = UIImage(data: data)
+            self.objectImage.layer.cornerRadius = 20
+            self.objectImage.isHidden = false
+        }
+    }
+    
     func appendObjectDetails(text: String) {
+        ApiManager.shared.getObjectImage(imageID: self.objectID, contentType: self.contentType) { data, response, error in
+            guard let data = data, error == nil else { return }
+            self.SuccessLoadingHandle(with: data)
+        }
         self.infoLabel.text = text
-        infoLabel.adjustsFontForContentSizeCategory = true
-        infoLabel.adjustsFontSizeToFitWidth = true;
-        
+        self.infoLabel.adjustsFontForContentSizeCategory = true
+        self.infoLabel.adjustsFontSizeToFitWidth = true
+        self.nameLabel.adjustsFontForContentSizeCategory = true
+        self.nameLabel.adjustsFontSizeToFitWidth = true;
         self.infoLabel.isHidden = false
+        self.objectImage.isHidden = false
         self.activityIndicator.stopAnimating()
     }
     

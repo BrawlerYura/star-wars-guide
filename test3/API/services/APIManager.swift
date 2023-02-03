@@ -144,4 +144,11 @@ class ApiManager {
         guard let request = URL(string: objectUrl) else { return }
         self.networkManager.loadData(url: request , completion: completion)
     }
+    
+    func getObjectImage(imageID: Int , contentType: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let imageUrl = "https://starwars-visualguide.com/assets/img/\(contentType.lowercased())/\(imageID).jpg"
+        print(imageUrl)
+        self.networkManager.loadImage(imageUrl: imageUrl, completion: completion)
+    }
+    
 }

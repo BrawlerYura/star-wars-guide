@@ -27,8 +27,7 @@ class thirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsSelection = true
-//        self.view.bringSubviewToFront(tableView)
-//        self.tableView.register(UINib(nibName: "PostContentCell", bundle: nil), forCellReuseIdentifier: "PostContentCell")
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -38,13 +37,6 @@ class thirdViewController: UIViewController {
         loadContent(contentType: contentType, nextPageUrlString: nil)
         
     }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-    
-    
-    
     
 }
     
@@ -85,6 +77,7 @@ extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
         var objectUrl = categoryContents[indexPath.row].url ?? ""
         fourthViewController.objectUrl = objectUrl + "?format=json"
         fourthViewController.contentType = self.contentType
+        fourthViewController.objectID = indexPath.row + 1
         show(fourthViewController, sender: nil)
     }
     

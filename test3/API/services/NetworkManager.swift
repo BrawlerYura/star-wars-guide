@@ -40,8 +40,13 @@ extension NetworkManager: INetworkManager {
                     completion(.failure(error))
                 }
             }
-               
+            
         }
         task.resume()
+    }
+    
+    func loadImage(imageUrl: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        guard let request = URL(string: imageUrl) else { return }
+        URLSession.shared.dataTask(with: request, completionHandler: completion).resume()
     }
 }
