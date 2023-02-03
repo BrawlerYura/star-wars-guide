@@ -10,3 +10,4 @@ import Foundation
 protocol SecondInputDelegate: AnyObject {
     func setupContent(with icons: ([ContentIcons]))
 }
+

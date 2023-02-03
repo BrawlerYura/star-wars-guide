@@ -40,21 +40,21 @@ extension secViewController: SecondInputDelegate, UICollectionViewDelegate, UICo
     }
     
         
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return icons.count
-        }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return icons.count
+    }
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
-            
-            cell.image.image = UIImage(named: icons[indexPath.row].images)
-            cell.title.text = icons[indexPath.row].titles
-            cell.title.layer.cornerRadius = 20
-            cell.title.layer.backgroundColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-            
-            return cell
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
+        
+        cell.image.image = UIImage(named: icons[indexPath.row].images)
+        cell.title.text = icons[indexPath.row].titles
+        cell.title.layer.cornerRadius = 20
+        cell.title.layer.backgroundColor = CGColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
+        return cell
+    }
         
     
     

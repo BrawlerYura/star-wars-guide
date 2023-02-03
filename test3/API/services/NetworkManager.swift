@@ -17,16 +17,16 @@ class NetworkManager: NSObject {
     private let session = URLSession(configuration: .default)
 }
 
+
+
 extension NetworkManager: INetworkManager {
     
     func loadData<T>(url: URL, completion: @escaping (Result<T, Error>) -> Void) where T: Decodable {
         let request = URLRequest(url: url)
-        
         self.loadData(urlRequest: request, completion: completion)
     }
     
     func loadData<T>(urlRequest: URLRequest, completion: @escaping (Result<T, Error>) -> Void) where T: Decodable {
-        
         let task = self.session.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -40,10 +40,10 @@ extension NetworkManager: INetworkManager {
                     completion(.failure(error))
                 }
             }
-            
         }
         task.resume()
     }
+    
     
     func loadImage(imageUrl: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         guard let request = URL(string: imageUrl) else { return }

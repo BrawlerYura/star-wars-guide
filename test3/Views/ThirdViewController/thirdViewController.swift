@@ -10,7 +10,6 @@ import UIKit
 
 class thirdViewController: UIViewController {
     
-    
     private enum Metrics {
         static let cellHeight: CGFloat = 65
     }
@@ -26,8 +25,6 @@ class thirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.allowsSelection = true
-
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -54,6 +51,7 @@ extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostContentCell", for: indexPath) as? PostContentCell else { return UITableViewCell() }
         cell.configure(with: categoryContents[indexPath.row])
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -73,8 +71,9 @@ extension thirdViewController: UITableViewDelegate, UITableViewDataSource {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let fourthViewController = storyboard.instantiateViewController(identifier: "FourthViewController") as? FourthViewController else { return }
-        fourthViewController.objectName = categoryContents[indexPath.row].name
         var objectUrl = categoryContents[indexPath.row].url ?? ""
+        
+        fourthViewController.objectName = categoryContents[indexPath.row].name
         fourthViewController.objectUrl = objectUrl + "?format=json"
         fourthViewController.contentType = self.contentType
         fourthViewController.objectID = indexPath.row + 1
@@ -91,7 +90,6 @@ class PostContentCell: UITableViewCell {
     @IBOutlet weak var contentLabel: UILabel!
     
     override func awakeFromNib() {
-        
         backgroundCellView.layer.cornerRadius = 25
         backgroundCellView.layer.masksToBounds = true
     }
@@ -103,11 +101,13 @@ class PostContentCell: UITableViewCell {
 
 
 private extension thirdViewController {
+    
     func loadContent(contentType: String , nextPageUrlString: String?)  {
         self.activityController.startAnimating()
         self.isLoading = true
         
         switch contentType {
+            
         case "Characters":
             ApiManager.shared.getPeoples(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
@@ -119,6 +119,7 @@ private extension thirdViewController {
                     self.isLoading = false
                 }
             }
+            
         case "Films":
             ApiManager.shared.getFilms(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
@@ -130,6 +131,7 @@ private extension thirdViewController {
                     self.isLoading = false
                 }
             }
+            
         case "Vehicles":
             ApiManager.shared.getVehicles(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
@@ -141,6 +143,7 @@ private extension thirdViewController {
                     self.isLoading = false
                 }
             }
+            
         case "Species":
             ApiManager.shared.getSpecies(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
@@ -152,6 +155,7 @@ private extension thirdViewController {
                     self.isLoading = false
                 }
             }
+            
         case "Starships":
             ApiManager.shared.getStarships(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
@@ -163,6 +167,7 @@ private extension thirdViewController {
                     self.isLoading = false
                 }
             }
+            
         case "Planets":
             ApiManager.shared.getPlanets(nextPageUrlString: nextPageUrlString) { result in
                 switch  result{
@@ -174,10 +179,13 @@ private extension thirdViewController {
                     self.isLoading = false
                 }
             }
+            
         default:
             print("no results")
         }
     }
+    
+    
     
     func charactersSuccessLoadingHandle(with peoples: Peoples) {
         if let nextPage = peoples.next {
@@ -257,14 +265,16 @@ private extension thirdViewController {
         appendCategoryContents(categoryContents: categoryContents)
     }
     
+    
+    
     func appendCategoryContents(categoryContents: [ContentCategoryCellModel]) {
         self.categoryContents.append(contentsOf: categoryContents)
+        
         DispatchQueue.main.async{
             self.activityController.stopAnimating()
             self.tableView.reloadData()
         }
     }
-    
 }
 
 

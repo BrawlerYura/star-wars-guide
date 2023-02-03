@@ -25,7 +25,4 @@ extension SecondPresenter: SecondOutputDelegate {
     func getIcons() {
         self.loadIcons()
     }
-
-
-
 }
