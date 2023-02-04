@@ -13,7 +13,7 @@
         <!--Ready Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ReadyPageViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReadyPageViewController" customModule="SW_guide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
         <!--Main Screen View Controller-->
         <scene sceneID="I7w-f3-usC">
             <objects>
-                <viewController id="ep8-oi-dZ2" userLabel="Main Screen View Controller" customClass="MainScreenViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ep8-oi-dZ2" userLabel="Main Screen View Controller" customClass="MainPageViewController" customModule="SW_guide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pht-Cn-WpF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCell" id="vhj-gv-iqT" customClass="PostCell" customModule="test3" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCell" id="vhj-gv-iqT" customClass="PostCell" customModule="SW_guide" customModuleProvider="target">
                                         <rect key="frame" x="9" y="0.0" width="375" height="226"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cj8-wP-FnA">
@@ -168,7 +168,7 @@
         <!--Content View Controller-->
         <scene sceneID="hLs-wS-yKM">
             <objects>
-                <viewController storyboardIdentifier="ContentViewController" id="S1z-b0-L98" userLabel="Content View Controller" customClass="ContentViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentPageViewController" id="S1z-b0-L98" userLabel="Content View Controller" customClass="ContentPageViewController" customModule="SW_guide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XJu-vh-FKf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -188,7 +188,7 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostContentCell" id="3LE-Pb-Ynl" customClass="PostContentCell" customModule="test3" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostContentCell" id="3LE-Pb-Ynl" customClass="PostContentCell" customModule="SW_guide" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="85.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3LE-Pb-Ynl" id="GSE-Sk-fc8">
@@ -273,7 +273,7 @@
         <!--Object Page View Controller-->
         <scene sceneID="BRY-He-Z5I">
             <objects>
-                <viewController storyboardIdentifier="ObjectPageViewController" id="tz5-wN-kdG" userLabel="Object Page View Controller" customClass="ObjectPageViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ObjectPageViewController" id="tz5-wN-kdG" userLabel="Object Page View Controller" customClass="ObjectPageViewController" customModule="SW_guide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dtg-7D-RoG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

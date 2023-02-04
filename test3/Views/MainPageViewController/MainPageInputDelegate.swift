@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MainScreenInputDelegate: AnyObject {
+protocol MainPageInputDelegate: AnyObject {
     func setupContent(with icons: ([ContentIcons]))
 }
 

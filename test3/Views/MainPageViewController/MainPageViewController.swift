@@ -7,33 +7,35 @@
 
 import UIKit
 
-class MainScreenViewController: UIViewController {
+class MainPageViewController: UIViewController {
     
     
     
     private var icons: [ContentIcons] = []
-    private let presenter = MainScreenPresenter()
-    weak private var outputDelegate: MainScreenOutputDelegate?
+    private let presenter = MainPagePresenter()
+    weak private var outputDelegate: MainPageOutputDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setMainScreenIputDelegate(mainScreenInputDlegate: self)
+        
+        presenter.setMainPageIputDelegate(mainPageInputDlegate: self)
+        
         self.outputDelegate = presenter
         self.outputDelegate?.getIcons()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                guard let contentViewController = storyboard.instantiateViewController(identifier: "ContentViewController") as? ContentViewController else { return }
-                contentViewController.contentType = icons[indexPath.row].titles
-        show(contentViewController, sender: nil)
+                guard let contentPageViewController = storyboard.instantiateViewController(identifier: "ContentPageViewController") as? ContentPageViewController else { return }
+                contentPageViewController.contentType = icons[indexPath.row].titles
+        show(contentPageViewController, sender: nil)
     }
     
 }
 
-extension MainScreenViewController: MainScreenInputDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainPageViewController: MainPageInputDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func setupContent(with icons: ([ContentIcons])) {
         self.icons = icons

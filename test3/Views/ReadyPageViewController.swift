@@ -15,9 +15,6 @@ class ReadyPageViewController: UIViewController {
         super.viewDidLoad()
         button.tintColor = UIColor.clear
         button.layer.cornerRadius =  15
-        
-        
-
     }
     
 }

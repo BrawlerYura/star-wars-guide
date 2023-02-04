@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol ContentPresenterDelegate: AnyObject {
+protocol ContentPagePresenterDelegate: AnyObject {
     func presentContent(content: [ContentCategoryCellModel])
     func setNextPage(nextPage: String)
     func setLoadingToFalse()
     func setEndingOfPage()
 }
 
-class ContentPresenter {
+class ContentPagePresenter {
     
-    weak var delegate: ContentPresenterDelegate?
+    weak var delegate: ContentPagePresenterDelegate?
     
     public func loadContent(contentType: String , nextPageUrlString: String?) {
         
@@ -99,12 +99,12 @@ class ContentPresenter {
         }
     }
     
-    public func setViewDelegate(delegate: ContentPresenterDelegate) {
+    public func setViewDelegate(delegate: ContentPagePresenterDelegate) {
         self.delegate = delegate
     }
 }
 
-private extension ContentPresenter {
+private extension ContentPagePresenter {
     
     func charactersSuccessLoadingHandle(with peoples: Peoples) {
         if let nextPage = peoples.next {

@@ -8,14 +8,12 @@
 import UIKit
 
 
-class ContentViewController: UIViewController, ContentPresenterDelegate {
+class ContentPageViewController: UIViewController, ContentPagePresenterDelegate {
     
     
     private enum Metrics {
         static let cellHeight: CGFloat = 65
     }
-    
-    private let presenter = ContentPresenter()
     
     private var categoryContents: [ContentCategoryCellModel] = []
     private var nextPage: String?
@@ -25,6 +23,9 @@ class ContentViewController: UIViewController, ContentPresenterDelegate {
     
     @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    
+    private let presenter = ContentPagePresenter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +77,7 @@ class ContentViewController: UIViewController, ContentPresenterDelegate {
     
 
 
-extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
+extension ContentPageViewController: UITableViewDelegate, UITableViewDataSource {
     
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

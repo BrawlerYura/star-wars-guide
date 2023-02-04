@@ -8,6 +8,6 @@
 import Foundation
 
 
-protocol MainScreenOutputDelegate: AnyObject {
+protocol MainPageOutputDelegate: AnyObject {
     func getIcons()
 }
