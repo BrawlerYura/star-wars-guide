@@ -18,6 +18,10 @@ class ContentPagePresenter {
     
     weak var delegate: ContentPagePresenterDelegate?
     
+    public func setViewDelegate(delegate: ContentPagePresenterDelegate) {
+        self.delegate = delegate
+    }
+    
     public func loadContent(contentType: String , nextPageUrlString: String?) {
         
         switch contentType {
@@ -97,10 +101,6 @@ class ContentPagePresenter {
         default:
             print("no results")
         }
-    }
-    
-    public func setViewDelegate(delegate: ContentPagePresenterDelegate) {
-        self.delegate = delegate
     }
 }
 

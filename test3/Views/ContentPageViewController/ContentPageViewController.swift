@@ -15,11 +15,11 @@ class ContentPageViewController: UIViewController, ContentPagePresenterDelegate 
         static let cellHeight: CGFloat = 65
     }
     
+    var contentType: String = ""
     private var categoryContents: [ContentCategoryCellModel] = []
     private var nextPage: String?
     private var isLoading: Bool = false
     private var isPageEnded: Bool = false
-    var contentType: String = ""
     
     @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
@@ -39,7 +39,6 @@ class ContentPageViewController: UIViewController, ContentPagePresenterDelegate 
         
         
         startLoadingContent(contentType: contentType, nextPageUrlString: nil)
-        
     }
     
     func startLoadingContent(contentType: String, nextPageUrlString: String?) {
@@ -71,14 +70,9 @@ class ContentPageViewController: UIViewController, ContentPagePresenterDelegate 
         self.isPageEnded = true
         self.nextPage = nil
     }
-
 }
     
-    
-
-
 extension ContentPageViewController: UITableViewDelegate, UITableViewDataSource {
-    
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryContents.count
@@ -92,8 +86,6 @@ extension ContentPageViewController: UITableViewDelegate, UITableViewDataSource 
         
         return cell
     }
-    
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height + Metrics.cellHeight) > scrollView.contentSize.height) {
@@ -116,9 +108,6 @@ extension ContentPageViewController: UITableViewDelegate, UITableViewDataSource 
         objectPageViewController.objectID = indexPath.row + 1
         show(objectPageViewController, sender: nil)
     }
-    
-    
-    
 }
 
 class PostContentCell: UITableViewCell {

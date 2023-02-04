@@ -19,7 +19,6 @@ class MainPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter.setMainPageIputDelegate(mainPageInputDlegate: self)
         
         self.outputDelegate = presenter
