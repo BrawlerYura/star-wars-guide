@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class ObjectPageViewController: UIViewController {
     
     var contentType = ""
     var objectName = ""
@@ -29,7 +29,7 @@ class FourthViewController: UIViewController {
 }
 
 
-private extension FourthViewController {
+private extension ObjectPageViewController {
     
     func loadContent(contentType: String , objectUrl: String)  {
         infoLabel.isHidden = true

@@ -7,33 +7,33 @@
 
 import UIKit
 
-class secViewController: UIViewController {
+class MainScreenViewController: UIViewController {
     
     
     
     private var icons: [ContentIcons] = []
-    private let presenter = SecondPresenter()
-    weak private var secondOutputDelegate: SecondOutputDelegate?
+    private let presenter = MainScreenPresenter()
+    weak private var outputDelegate: MainScreenOutputDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setSecondIputDelegate(secondInputDlegate: self)
-        self.secondOutputDelegate = presenter
-        self.secondOutputDelegate?.getIcons()
+        presenter.setMainScreenIputDelegate(mainScreenInputDlegate: self)
+        self.outputDelegate = presenter
+        self.outputDelegate?.getIcons()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                guard let thirdViewController = storyboard.instantiateViewController(identifier: "ThirdViewController") as? thirdViewController else { return }
-                thirdViewController.contentType = icons[indexPath.row].titles
-        show(thirdViewController, sender: nil)
+                guard let contentViewController = storyboard.instantiateViewController(identifier: "ContentViewController") as? ContentViewController else { return }
+                contentViewController.contentType = icons[indexPath.row].titles
+        show(contentViewController, sender: nil)
     }
     
 }
 
-extension secViewController: SecondInputDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainScreenViewController: MainScreenInputDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func setupContent(with icons: ([ContentIcons])) {
         self.icons = icons

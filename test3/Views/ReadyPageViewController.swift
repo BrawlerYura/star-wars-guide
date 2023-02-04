@@ -7,7 +7,7 @@
 
 import UIKit
 
-class firViewController: UIViewController {
+class ReadyPageViewController: UIViewController {
     
     
     @IBOutlet weak var button: UIButton!

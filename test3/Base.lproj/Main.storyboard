@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Fir View Controller-->
+        <!--Ready Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="firViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReadyPageViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1038.1395348837209" y="-28.969957081545065"/>
         </scene>
-        <!--Sec View Controller-->
+        <!--Main Screen View Controller-->
         <scene sceneID="I7w-f3-usC">
             <objects>
-                <viewController id="ep8-oi-dZ2" customClass="secViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ep8-oi-dZ2" userLabel="Main Screen View Controller" customClass="MainScreenViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pht-Cn-WpF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,10 +165,10 @@
             </objects>
             <point key="canvasLocation" x="1767.2" y="-30.295566502463057"/>
         </scene>
-        <!--Title-->
+        <!--Content View Controller-->
         <scene sceneID="hLs-wS-yKM">
             <objects>
-                <viewController storyboardIdentifier="ThirdViewController" id="S1z-b0-L98" customClass="thirdViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" id="S1z-b0-L98" userLabel="Content View Controller" customClass="ContentViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XJu-vh-FKf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,7 +177,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Zag-iD-kp7">
-                                <rect key="frame" x="148" y="102" width="88" height="251"/>
+                                <rect key="frame" x="147" y="102" width="88" height="251"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="color" red="0.98431372549999996" green="0.88980737850000002" blue="0.15747623050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -270,10 +270,10 @@
             </objects>
             <point key="canvasLocation" x="2529.0076335877861" y="-30.281690140845072"/>
         </scene>
-        <!--Fourth View Controller-->
+        <!--Object Page View Controller-->
         <scene sceneID="BRY-He-Z5I">
             <objects>
-                <viewController storyboardIdentifier="FourthViewController" id="tz5-wN-kdG" customClass="FourthViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ObjectPageViewController" id="tz5-wN-kdG" userLabel="Object Page View Controller" customClass="ObjectPageViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dtg-7D-RoG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
